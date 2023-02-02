@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello this is index.html!</h1>
+        <!-- {{ insert_me }} -->
+        <!-- <br> -->
+        <!-- <img src="{% static '/first_app/django_reinhardt_header1_0.jpeg' %}" alt="My image"> -->
+
+    <div class="djangotwo">
+        {% if access_records %}
+            <table>
+                <thead>
+                    <th>Site Name</th>
+                    <th>Date Accessed</th>
+                </thead>
+                {% for acc in access_records %}
+                <tr>
+                    <td>{{ acc.name }}</td>
+                    <td>{{ acc.date }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            {% else %}
+                <p>No ACCESS RECORDS FOUND!</p>
+            {% endif %}
+    </div>
+</body>
+</html>
